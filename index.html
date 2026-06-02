@@ -3,165 +3,680 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de Cooperación - Puppster Club</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Sintonía y Calma en el Echado - Puppster Club</title>
+    <!-- Fuentes Premium del Brand Identity -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Iconos Deportivos/Técnicos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Configuración e Inyección de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBg: '#0A0A0A',
+                        cardBg: '#141414',
+                        brandOrange: '#F4620F',
+                        brandBlue: '#1A6BFF',
+                        brandWhite: '#FFFFFF',
+                        brandGray: '#A1A1A1'
+                    },
+                    fontFamily: {
+                        bebas: ['Bebas Neue', 'sans-serif'],
+                        barlow: ['Barlow Condensed', 'sans-serif'],
+                        dmsans: ['DM Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --bg-base: #0A0A0A;
-            --card-bg: #141414;
-            --text-main: #FFFFFF;
-            --accent-orange: #F4620F;
-            --accent-blue: #1A6BFF;
-        }
+        /* Ajustes específicos de scroll y suavizado */
         html, body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            font-family: 'DM Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100%;
+            background-color: #0A0A0A;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        .wrapper {
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+        /* Custom scrollbar para la interfaz oscura */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .container {
-            max-width: 750px;
-            width: 100%;
-            background-color: var(--card-bg);
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
         }
-        h1, h2, h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1px;
-            margin-top: 0;
-            text-transform: uppercase;
+        ::-webkit-scrollbar-thumb {
+            background: #141414;
+            border-radius: 4px;
         }
-        h1 {
-            font-size: 2.8rem;
-            color: var(--text-main);
-            border-bottom: 3px solid var(--accent-orange);
-            padding-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.8rem;
-            color: var(--accent-orange);
-            margin-top: 25px;
-        }
-        .technical-term {
-            color: var(--accent-blue);
-            font-weight: bold;
-        }
-        .step-box {
-            background-color: #1a1a1a;
-            border-left: 4px solid var(--accent-orange);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 0 8px 8px 0;
-        }
-        ul {
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        label {
-            display: block;
-            margin-top: 20px;
-            margin-bottom: 8px;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-        textarea {
-            width: 100%;
-            padding: 12px;
-            background-color: #222;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 6px;
-            font-family: 'DM Sans', sans-serif;
-            box-sizing: border-box;
-            resize: vertical;
-        }
-        .btn {
-            background-color: var(--accent-orange);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.3rem;
-            font-family: 'Bebas Neue', sans-serif;
-            cursor: pointer;
-            border-radius: 6px;
-            margin-top: 25px;
-            width: 100%;
-            letter-spacing: 1px;
-            transition: background 0.2s ease;
-        }
-        .btn:hover {
-            background-color: #d3540d;
-        }
-        @media print {
-            body, html { background-color: white; color: black; }
-            .container { box-shadow: none; background-color: white; padding: 0; }
-            .btn { display: none; }
-            h1 { color: black; border-bottom: 3px solid black; }
-            h2 { color: black; }
-            .step-box { border-left: 4px solid black; background-color: #f5f5f5; }
-            textarea { background-color: transparent; border: 1px solid #ccc; color: black; }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F4620F;
         }
     </style>
 </head>
-<body>
+<body class="font-dmsans text-brandWhite min-h-screen flex flex-col justify-between">
 
-<div class="wrapper">
-    <div class="container">
-        <h1>PUPPSTER CLUB: CALMA EN EL ECHADO</h1>
-        <p>¡Hola! Qué gusto ver el avance que estás teniendo en este proceso. Para dar continuidad a lo que trabajamos en nuestra sesión y seguir profundizando en el aprendizaje, vamos a practicar la postura de echado desde un enfoque de total cooperación y escucha activa como tutor.</p>
-        <p>Recuerda que no buscamos una respuesta mecánica, sino un diálogo constructivo con tu perro donde él se sienta seguro y comprendido.</p>
-        
-        <h2>Aquí tienes la guía de tres pasos para la práctica de esta semana:</h2>
-
-        <div class="step-box">
-            <h3>1. Prepara un espacio de calma</h3>
-            <p>Elige un momento del día en el que el entorno esté tranquilo y tu perro se note relajado. Antes de iniciar, adopta una postura corporal relajada (puedes usar la postura que practicamos).</p>
+    <!-- HEADER BRANDING (Puppster Club Style) -->
+    <header class="w-full bg-[#050505] border-b border-zinc-900 py-4 px-6 md:px-12 flex justify-between items-center z-50">
+        <div class="flex items-center gap-3">
+            <span class="text-brandOrange text-2xl font-bold tracking-wider font-bebas flex items-center gap-2">
+                <i class="fa-solid fa-dog-leashed text-xl"></i> PUPPSTER <span class="text-brandWhite">CLUB</span>
+            </span>
         </div>
-
-        <div class="step-box">
-            <h3>2. Guía hacia la postura con naturalidad</h3>
-            <p>Invita a tu perro a seguir el movimiento de tu mano de manera muy suave, orientándolo hacia el suelo para facilitarle encontrar la postura de echado orgánicamente. Permite que procese la propuesta a su propio ritmo. En cuanto empiece a deslizar sus patas o se recueste, valida su esfuerzo con tu voz en un tono suave y natural, celebrando su iniciativa y la sintonía contigo.</p>
+        <div class="flex items-center gap-2 text-xs font-barlow text-brandGray tracking-widest uppercase">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-brandOrange animate-pulse"></span>
+            EDUCACIÓN CANINA COGNITIVA
         </div>
+    </header>
 
-        <div class="step-box">
-            <h3>3. Observación activa y validación</h3>
-            <p>Este es el paso más importante en tu rol de tutor. Durante toda la interacción, mantén tus ojos bien abiertos para leer su lenguaje corporal. Si tu perro presenta alguna <span class="technical-term">señal de calma o apaciguamiento</span> como:</p>
-            <ul>
-                <li>Un bostezo</li>
-                <li>Relamido de belfos (pasarse la lengua por los labios)</li>
-                <li>Levantar una patita</li>
-                <li>Entrecerrar los ojos</li>
-            </ul>
-            <p>Detén la propuesta. Estas señales te están comunicando que necesita un espacio, que la excitación está subiendo o que requiere procesar la información. Valida su sentir dándole unos segundos de descanso, baja la intensidad de la guía y espera a que su nivel de activación disminuya antes de volver a conectar.</p>
-        </div>
-
-        <p>📌 <strong>Nota:</strong> Cuando subas tu evidencia (ya sea en video corto o un breve comentario escrito), cuéntame qué señales lograste identificar en tu perro y cómo se sintieron ambos durante el ejercicio. ¡Disfruten mucho este momento de conexión!</p>
-
-        <div style="border-top: 1px solid #333; margin-top: 30px; padding-top: 20px;">
-            <h2>BITÁCORA DE OBSERVACIÓN</h2>
+    <!-- CAROUSEL WRAPPER -->
+    <main class="flex-grow flex items-center justify-center py-6 px-4 md:px-12 relative">
+        <div class="w-full max-w-5xl bg-cardBg rounded-2xl border border-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden relative min-h-[640px] flex flex-col justify-between">
             
-            <label>¿Qué señales lograste identificar en tu perro?</label>
-            <textarea rows="3" placeholder="Ej. Noté que se relamió los belfos un par de veces..."></textarea>
+            <!-- PROGRESS BAR -->
+            <div class="w-full bg-zinc-950 h-1 flex">
+                <div id="slide-progress" class="bg-brandOrange h-full transition-all duration-500 ease-out" style="width: 12.5%;"></div>
+            </div>
 
-            <label>¿Cómo se sintieron ambos durante el ejercicio?</label>
-            <textarea rows="3" placeholder="Ej. Me sentí en sintonía, detuve la guía cuando bostezó..."></textarea>
-            
-            <button class="btn" onclick="window.print()">DESCARGAR REPORTE EN PDF</button>
+            <!-- SLIDES CONTENT -->
+            <div class="p-8 md:p-12 flex-grow flex items-center">
+                
+                <!-- DIAPOSITIVA 1: PORTADA -->
+                <div id="slide-1" class="slide-item w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <span class="text-brandBlue font-barlow text-sm font-semibold tracking-widest uppercase border-b-2 border-brandBlue pb-1 inline-block">GUÍA SEMANAL</span>
+                        <h1 class="text-6xl md:text-8xl font-bebas tracking-tight text-brandWhite leading-none">
+                            SINTONÍA Y <span class="text-brandOrange">CALMA</span> EN EL ECHADO
+                        </h1>
+                        <p class="text-brandGray text-base leading-relaxed max-w-md">
+                            ¡Hola! Qué gusto ver el avance que estás teniendo en este proceso. Para dar continuidad a lo que trabajamos en nuestra sesión y seguir profundizando en el aprendizaje, vamos a practicar la postura de echado desde un enfoque de total cooperación y escucha activa como tutor.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs font-barlow text-zinc-500 uppercase tracking-widest">
+                            <i class="fa-solid fa-keyboard"></i> Usa las flechas del teclado o desliza para navegar
+                        </div>
+                    </div>
+                    <div class="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1537151608828-ea2b117b6281?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-700" alt="Conexión y mirada canina">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandBg via-transparent to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- DIAPOSITIVA 2: EL DIÁLOGO CONSTRUCTIVO -->
+                <div id="slide-2" class="slide-item w-full hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <span class="text-brandBlue font-barlow text-sm font-semibold tracking-widest uppercase border-b-2 border-brandBlue pb-1 inline-block">LA METODOLOGÍA</span>
+                        <h1 class="text-6xl md:text-7xl font-bebas tracking-tight text-brandWhite leading-none">
+                            DIÁLOGO <span class="text-brandOrange">CONSTRUCTIVO</span>
+                        </h1>
+                        <p class="text-brandWhite text-lg leading-relaxed font-light">
+                            Recuerda que no buscamos una <span class="border-b border-brandBlue text-brandBlue font-medium">respuesta mecánica</span>, sino un diálogo constructivo con tu perro donde él se sienta seguro y comprendido.
+                        </p>
+                        <div class="bg-zinc-950 p-4 rounded-lg border-l-4 border-brandOrange">
+                            <p class="text-brandGray text-sm italic">
+                                Al eliminar la imposición física, estimulamos la libre elección del perro. Esto consolida un aprendizaje duradero y basado en la confianza mutua.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale opacity-70 hover:grayscale-0 transition-all duration-700" alt="Perrito acostado feliz">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandBg to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- DIAPOSITIVA 3: PASO 1 -->
+                <div id="slide-3" class="slide-item w-full hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <span class="text-brandBlue font-barlow text-sm font-semibold tracking-widest uppercase border-b-2 border-brandBlue pb-1 inline-block">PASO 01</span>
+                        <h1 class="text-6xl md:text-7xl font-bebas tracking-tight text-brandWhite leading-none">
+                            PREPARA UN ESPACIO DE <span class="text-brandOrange">CALMA</span>
+                        </h1>
+                        <p class="text-brandWhite text-base leading-relaxed">
+                            Elige un momento del día en el que el entorno esté tranquilo y tu perro se note relajado. Antes de iniciar, adopta una <span class="text-brandBlue border-b border-brandBlue/30 font-semibold">postura corporal relajada</span> (puedes usar la postura que practicamos).
+                        </p>
+                        <div class="bg-zinc-950 p-5 rounded-xl border border-zinc-900 flex gap-4 items-start">
+                            <span class="text-brandOrange text-2xl font-bold font-bebas">01</span>
+                            <p class="text-brandGray text-sm">El primer paso es siempre tu propia autorregulación. Los perros leen de inmediato la tensión en nuestro cuerpo.</p>
+                        </div>
+                    </div>
+                    <div class="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale opacity-75" alt="Perrito relajándose en interiores">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandBg to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- DIAPOSITIVA 4: PASO 2 -->
+                <div id="slide-4" class="slide-item w-full hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <span class="text-brandBlue font-barlow text-sm font-semibold tracking-widest uppercase border-b-2 border-brandBlue pb-1 inline-block">PASO 02</span>
+                        <h1 class="text-6xl md:text-7xl font-bebas tracking-tight text-brandWhite leading-none">
+                            GUÍA CON <span class="text-brandOrange">NATURALIDAD</span>
+                        </h1>
+                        <p class="text-brandWhite text-base leading-relaxed">
+                            Invita a tu perro a seguir el movimiento de tu mano de manera muy suave, orientándolo hacia el suelo para facilitarle encontrar la postura de <span class="text-brandBlue border-b border-brandBlue/30 font-medium">echado orgánicamente</span>. Permite que procese la propuesta a su propio ritmo. En cuanto empiece a deslizar sus patas o se recueste, valida su esfuerzo con tu voz en un tono suave y natural, celebrando su iniciativa y la sintonía contigo.
+                        </p>
+                    </div>
+                    <div class="bg-zinc-950 p-5 rounded-xl border border-zinc-900 self-stretch flex flex-col justify-center space-y-3">
+                        <h3 class="font-bebas text-2xl tracking-wider text-brandWhite">REGLA DE ORO DE LA GUÍA</h3>
+                        <p class="text-brandGray text-xs leading-relaxed">
+                            Nunca empujes hacia abajo el lomo o las patitas del perro. Deja que sea él quien descifre el movimiento de tu mano para construir autonomía y confianza.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DIAPOSITIVA 5: PASO 3 -->
+                <div id="slide-5" class="slide-item w-full hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <span class="text-brandBlue font-barlow text-sm font-semibold tracking-widest uppercase border-b-2 border-brandBlue pb-1 inline-block">PASO 03</span>
+                        <h1 class="text-6xl md:text-7xl font-bebas tracking-tight text-brandWhite leading-none">
+                            OBSERVACIÓN Y <span class="text-brandOrange">VALIDACIÓN</span>
+                        </h1>
+                        <p class="text-brandWhite text-base leading-relaxed">
+                            Este es el paso más importante en tu rol de tutor. Durante toda la interacción, mantén tus ojos bien abiertos para leer su <span class="text-brandBlue border-b border-brandBlue/30 font-medium">lenguaje corporal</span>. Si tu perro presenta alguna señal de calma o apaciguamiento, detén la propuesta de inmediato.
+                        </p>
+                        <p class="text-brandGray text-sm">
+                            Estas señales te están comunicando que necesita un espacio, que la excitación está subiendo o que requiere procesar la información. Valida su sentir dándole unos segundos de descanso, baja la intensidad de la guía y espera a que su nivel de activación disminuya antes de volver a conectar.
+                        </p>
+                    </div>
+                    <div class="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale opacity-75" alt="Tutor interactuando en calma">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandBg to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- DIAPOSITIVA 6: SEÑALES DE APACIGUAMIENTO -->
+                <div id="slide-6" class="slide-item w-full hidden space-y-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-zinc-900 pb-4">
+                        <div>
+                            <span class="text-brandBlue font-barlow text-sm font-semibold tracking-widest uppercase inline-block">DIAGNÓSTICO TÉCNICO</span>
+                            <h1 class="text-6xl font-bebas tracking-tight text-brandWhite leading-none mt-1">
+                                SEÑALES DE <span class="text-brandOrange">APACIGUAMIENTO</span>
+                            </h1>
+                        </div>
+                        <p class="text-brandGray text-sm max-w-sm">
+                            Si identificas cualquiera de estos indicadores físicos durante la guía, recuerda pausar para respetar sus tiempos de procesamiento.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-zinc-950 p-6 rounded-xl border border-zinc-900 space-y-3">
+                            <span class="text-brandBlue text-2xl"><i class="fa-solid fa-face-mouth-open"></i></span>
+                            <h3 class="font-bebas text-2xl tracking-wider text-brandWhite">UN BOSTEZO</h3>
+                            <p class="text-brandGray text-xs leading-relaxed">No indica fatiga, sino un mecanismo adaptativo del sistema para canalizar tensión del entrenamiento.</p>
+                        </div>
+                        <div class="bg-zinc-950 p-6 rounded-xl border border-zinc-900 space-y-3">
+                            <span class="text-brandBlue text-2xl"><i class="fa-solid fa-lips"></i></span>
+                            <h3 class="font-bebas text-2xl tracking-wider text-brandWhite">RELAMIDO DE BELFOS</h3>
+                            <p class="text-brandGray text-xs leading-relaxed">Pasarse la lengua rápido por los labios. Es una señal de pacificación clásica para frenar la presión.</p>
+                        </div>
+                        <div class="bg-zinc-950 p-6 rounded-xl border border-zinc-900 space-y-3">
+                            <span class="text-brandBlue text-2xl"><i class="fa-solid fa-paw"></i></span>
+                            <h3 class="font-bebas text-2xl tracking-wider text-brandWhite">LEVANTAR UNA PATITA</h3>
+                            <p class="text-brandGray text-xs leading-relaxed">Una patita delantera ligeramente en el aire refleja vacilación, asimilación y pedido de distancia segura.</p>
+                        </div>
+                        <div class="bg-zinc-950 p-6 rounded-xl border border-zinc-900 space-y-3">
+                            <span class="text-brandBlue text-2xl"><i class="fa-solid fa-eye"></i></span>
+                            <h3 class="font-bebas text-2xl tracking-wider text-brandWhite">OJOS ENTRECERRADOS</h3>
+                            <p class="text-brandGray text-xs leading-relaxed">Entrecerrar o voltear la mirada hacia los costados es su forma de apaciguar el contacto visual de confrontación.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIAPOSITIVA 7: BITÁCORA INTERACTIVA (EL APARTADO DE QUIZ AUTOMÁTICO) -->
+                <div id="slide-7" class="slide-item w-full hidden flex flex-col justify-between h-full">
+                    
+                    <!-- Contenedor del Cuestionario -->
+                    <div id="quiz-flow" class="space-y-6">
+                        <div class="border-b border-zinc-900 pb-4">
+                            <span class="text-brandOrange font-barlow text-sm font-semibold tracking-widest uppercase inline-block" id="quiz-step-indicator">PASO 1 DE 5: BITÁCORA AUTOMÁTICA</span>
+                            <h1 class="text-5xl font-bebas tracking-tight text-brandWhite leading-none mt-1" id="quiz-question-title">¿CÓMO FUE SU PRÁCTICA?</h1>
+                        </div>
+
+                        <!-- Panel Interactivo de Respuestas -->
+                        <div id="quiz-container" class="min-h-[280px] flex flex-col justify-center">
+                            <!-- Inyectado dinámicamente mediante JS -->
+                        </div>
+
+                        <!-- Botones de Control de la Bitácora -->
+                        <div class="flex justify-between items-center pt-4 border-t border-zinc-900">
+                            <button id="quiz-prev-btn" onclick="prevQuizStep()" class="text-brandGray hover:text-brandWhite text-sm font-barlow tracking-wider uppercase transition hidden">
+                                <i class="fa-solid fa-arrow-left mr-2"></i> Atrás
+                            </button>
+                            <button id="quiz-next-btn" onclick="nextQuizStep()" class="bg-brandOrange hover:bg-orange-700 text-brandWhite font-barlow text-sm tracking-widest uppercase py-3 px-6 rounded-lg transition disabled:opacity-30 disabled:cursor-not-allowed ml-auto" disabled>
+                                Siguiente <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reporte Generado Dinámicamente (Oculto hasta que acaben el quiz) -->
+                    <div id="quiz-report" class="hidden space-y-6">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-zinc-800 pb-4 gap-4">
+                            <div>
+                                <span class="text-brandBlue font-barlow text-xs font-semibold tracking-widest uppercase inline-block bg-brandBlue/10 px-3 py-1 rounded">BITÁCORA OFICIAL</span>
+                                <h1 class="text-5xl font-bebas tracking-tight text-brandWhite leading-none mt-2">TARJETA DE <span class="text-brandOrange">SINTONÍA SEMANAL</span></h1>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-brandGray text-xs font-barlow tracking-wider uppercase">PUPPSTER CLUB</p>
+                                <p class="text-brandWhite text-sm font-bold" id="report-date"></p>
+                            </div>
+                        </div>
+
+                        <!-- Certificado / Reporte Final -->
+                        <div class="bg-zinc-950 border border-zinc-900 rounded-xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6" id="report-card-capture">
+                            <div class="space-y-4 md:col-span-2">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="border-l-2 border-brandOrange pl-3">
+                                        <p class="text-brandGray text-[10px] uppercase tracking-wider font-barlow">Logros Semanales</p>
+                                        <p class="text-brandWhite text-base font-bold" id="rep-logros">-</p>
+                                    </div>
+                                    <div class="border-l-2 border-brandBlue pl-3">
+                                        <p class="text-brandGray text-[10px] uppercase tracking-wider font-barlow">Nivel de Calma Tutor</p>
+                                        <p class="text-brandWhite text-base font-bold" id="rep-calma">-</p>
+                                    </div>
+                                </div>
+                                <div class="border-l-2 border-zinc-800 pl-3">
+                                    <p class="text-brandGray text-[10px] uppercase tracking-wider font-barlow">Señales Detectadas</p>
+                                    <p class="text-brandWhite text-sm font-semibold" id="rep-senales">-</p>
+                                </div>
+                                <div class="border-l-2 border-zinc-800 pl-3">
+                                    <p class="text-brandGray text-[10px] uppercase tracking-wider font-barlow">Frecuencia Promedio</p>
+                                    <p class="text-brandWhite text-sm font-semibold" id="rep-frecuencia">-</p>
+                                </div>
+                                <div class="bg-zinc-900/50 p-4 rounded-lg border border-zinc-900">
+                                    <p class="text-brandGray text-[10px] uppercase tracking-wider font-barlow mb-1">Tu Experiencia de Escucha</p>
+                                    <p class="text-brandWhite text-xs italic leading-relaxed" id="rep-experiencia">-</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Columna Derecha con Feedback Automatizado -->
+                            <div class="bg-cardBg p-5 rounded-lg border border-zinc-800 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bebas text-lg tracking-widest text-brandOrange border-b border-zinc-800 pb-2 mb-3">CONSEJO EDUCATIVO</h4>
+                                    <p class="text-brandGray text-xs leading-relaxed" id="rep-feedback">
+                                        Analizando tus respuestas, estás logrando una excelente lectura del lenguaje de tu perrito. ¡Sigue así!
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-zinc-900 mt-4 text-center">
+                                    <div class="text-[10px] font-barlow text-brandBlue tracking-widest uppercase">EVIDENCIA COMPLETA</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controles finales para Classroom -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between pt-4">
+                            <p class="text-brandGray text-xs max-w-md">
+                                <i class="fa-solid fa-circle-info text-brandOrange mr-1"></i> Toma una <strong>captura de pantalla (pantallazo)</strong> de esta tarjeta de reporte y súbela como tu entrega en Google Classroom.
+                            </p>
+                            <div class="flex gap-2">
+                                <button onclick="resetBitacora()" class="border border-zinc-800 hover:border-brandWhite text-brandWhite text-xs font-barlow tracking-widest uppercase px-5 py-3 rounded-lg transition">
+                                    Reiniciar Registro
+                                </button>
+                                <button onclick="window.print()" class="bg-brandBlue hover:bg-blue-700 text-brandWhite text-xs font-barlow tracking-widest uppercase px-5 py-3 rounded-lg transition">
+                                    Imprimir/Guardar PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- DIAPOSITIVA 8: NOTA DE CIERRE -->
+                <div id="slide-8" class="slide-item w-full hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <span class="text-brandBlue font-barlow text-sm font-semibold tracking-widest uppercase border-b-2 border-brandBlue pb-1 inline-block">ENTREGA FINAL</span>
+                        <h1 class="text-6xl md:text-8xl font-bebas tracking-tight text-brandWhite leading-none">
+                            NOTA DE <span class="text-brandOrange">CONEXIÓN</span>
+                        </h1>
+                        <p class="text-brandWhite text-lg leading-relaxed font-light">
+                            📌 Nota: Cuando subas tu evidencia (ya sea en video corto o un breve comentario escrito), cuéntame qué señales lograste identificar en tu perro y cómo se sintieron ambos durante el ejercicio.
+                        </p>
+                        <p class="text-brandOrange font-bebas text-3xl tracking-widest">
+                            ¡DISFRUTEN MUCHO ESTE MOMENTO DE CONEXIÓN!
+                        </p>
+                    </div>
+                    <div class="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-2xl border border-zinc-800">
+                        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale opacity-75 hover:grayscale-0 transition-all duration-700" alt="Perro y tutor juntos">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brandBg to-transparent"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CAROUSEL FOOTER CONTROLS -->
+            <div class="bg-[#0c0c0c] border-t border-zinc-900 py-4 px-8 flex justify-between items-center">
+                <button id="prev-btn" onclick="prevSlide()" class="text-brandGray hover:text-brandWhite text-xs font-barlow tracking-widest uppercase flex items-center gap-2 transition" disabled>
+                    <i class="fa-solid fa-arrow-left"></i> Anterior
+                </button>
+                <div class="flex items-center gap-2" id="slide-dots">
+                    <!-- Dots generados dinámicamente -->
+                </div>
+                <button id="next-btn" onclick="nextSlide()" class="text-brandOrange hover:text-orange-500 text-xs font-barlow tracking-widest uppercase flex items-center gap-2 transition">
+                    Siguiente <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
         </div>
-    </div>
-</div>
+    </main>
 
+    <!-- FOOTER COPYRIGHT -->
+    <footer class="w-full bg-[#050505] border-t border-zinc-900 py-4 px-12 text-center text-[10px] font-barlow text-zinc-600 tracking-widest uppercase">
+        © 2026 PUPPSTER CLUB. TODOS LOS DERECHOS RESERVADOS. METODOLOGÍA COGNITIVA-EMOCIONAL.
+    </footer>
+
+    <!-- COMPORTAMIENTO INTERACTIVO (JavaScript) -->
+    <script>
+        // Configuración de Diapositivas
+        const totalSlides = 8;
+        let activeSlide = 1;
+
+        // Base de Datos de Preguntas de la Bitácora
+        const quizQuestions = [
+            {
+                id: 1,
+                title: "¿CÓMO FUE SU PRÁCTICA ESTA SEMANA?",
+                question: "¿Cuántas veces lograron conectar y que se echara de manera voluntaria durante la semana?",
+                type: "single",
+                options: [
+                    { value: "1-3 veces", label: "De 1 a 3 veces" },
+                    { value: "4-6 veces", label: "De 4 a 6 veces" },
+                    { value: "6+ veces", label: "Más de 6 veces" },
+                    { value: "Solo Calma Previa", label: "Solo en momentos de calma previa" }
+                ]
+            },
+            {
+                id: 2,
+                title: "TU OJO OBSERVADOR",
+                question: "¿Qué señales de calma o apaciguamiento lograste identificar en tu perro mientras hacías la guía?",
+                type: "multi",
+                options: [
+                    { value: "Bostezo", label: "Un bostezo" },
+                    { value: "Relamido de Belfos", label: "Relamido de belfos (pasarse la lengua)" },
+                    { value: "Levantar una Patita", label: "Levantar una patita" },
+                    { value: "Entrecerrar Ojos", label: "Entrecerrar los ojos" },
+                    { value: "Mirada Desviada", label: "Se giró o miró hacia otro lado" },
+                    { value: "Ninguna", label: "Ninguna, se notaba en total fluidez" }
+                ]
+            },
+            {
+                id: 3,
+                title: "FRECUENCIA DIARIA",
+                question: "En promedio, ¿cuántas señales de calma notaste por día durante los ejercicios?",
+                type: "single",
+                options: [
+                    { value: "0 señales (Fluidez Total)", label: "0 señales (Todo fluyó en completa calma)" },
+                    { value: "1-2 señales (Pausas Cortas)", label: "1 o 2 señales (Hicimos pequeñas pausas y continuamos)" },
+                    { value: "3+ señales (Presión Alta)", label: "3 o más señales (Nos indicó ir más despacio o bajar presión)" }
+                ]
+            },
+            {
+                id: 4,
+                title: "NIVEL DE CALMA PREVIA",
+                question: "Del 1 al 5, ¿qué tan relajado sentiste el entorno y tu propia postura antes de invitar a tu perro al ejercicio?",
+                type: "range",
+                options: [
+                    { value: "1", label: "1 - Tenía prisa / mucho ruido ambiental" },
+                    { value: "2", label: "2 - Entorno con distractores moderados" },
+                    { value: "3", label: "3 - Estable pero con ligera prisa interna" },
+                    { value: "4", label: "4 - Relajación bastante cómoda" },
+                    { value: "5", label: "5 - Logramos un espacio de total paz" }
+                ]
+            },
+            {
+                id: 5,
+                title: "TU EXPERIENCIA PERSONAL",
+                question: "Cuéntanos en un párrafo corto: ¿Cómo te sentiste tú al hacer la pausa cuando tu perro te mostró alguna señal?",
+                type: "text",
+                placeholder: "Escribe aquí tu vivencia, reflexiones o ajustes en tus movimientos..."
+            }
+        ];
+
+        let activeQuizStep = 0;
+        let quizAnswers = {
+            step1: "",
+            step2: [],
+            step3: "",
+            step4: "",
+            step5: ""
+        };
+
+        // Inicialización
+        window.onload = function() {
+            buildCarouselDots();
+            showSlide(activeSlide);
+            renderQuiz();
+
+            // Atajos de Teclado (Flechas) para navegar
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+        };
+
+        // Controladores del Carrusel de Diapositivas
+        function buildCarouselDots() {
+            const container = document.getElementById('slide-dots');
+            container.innerHTML = "";
+            for (let i = 1; i <= totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = `w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeSlide ? 'bg-brandOrange w-6' : 'bg-zinc-800'}`;
+                dot.onclick = () => showSlide(i);
+                container.appendChild(dot);
+            }
+        }
+
+        function showSlide(index) {
+            if (index < 1 || index > totalSlides) return;
+            activeSlide = index;
+
+            // Mostrar/Ocultar Diapositivas con CSS
+            for (let i = 1; i <= totalSlides; i++) {
+                const slide = document.getElementById(`slide-${i}`);
+                if (i === activeSlide) {
+                    slide.classList.remove('hidden');
+                } else {
+                    slide.classList.add('hidden');
+                }
+            }
+
+            // Actualizar Controles
+            document.getElementById('prev-btn').disabled = (activeSlide === 1);
+            document.getElementById('next-btn').disabled = (activeSlide === totalSlides);
+
+            // Barra de progreso
+            const percent = (activeSlide / totalSlides) * 100;
+            document.getElementById('slide-progress').style.width = `${percent}%`;
+
+            buildCarouselDots();
+        }
+
+        function nextSlide() {
+            if (activeSlide < totalSlides) {
+                showSlide(activeSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (activeSlide > 1) {
+                showSlide(activeSlide - 1);
+            }
+        }
+
+        // CONTROLADORES DE LA BITÁCORA INTERACTIVA (SLIDE 7)
+        function renderQuiz() {
+            const step = quizQuestions[activeQuizStep];
+            document.getElementById('quiz-step-indicator').innerText = `REGISTRO ${step.id} DE 5: BITÁCORA AUTOMÁTICA`;
+            document.getElementById('quiz-question-title').innerText = step.title;
+
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = `<p class="text-brandWhite text-lg font-light mb-6 leading-relaxed">${step.question}</p>`;
+
+            // Renderizar según tipo de pregunta
+            if (step.type === "single") {
+                const optsGrid = document.createElement('div');
+                optsGrid.className = "grid grid-cols-1 md:grid-cols-2 gap-4";
+                step.options.forEach(opt => {
+                    const isSelected = quizAnswers[`step${step.id}`] === opt.value;
+                    optsGrid.innerHTML += `
+                        <button onclick="selectSingleOption('${opt.value}')" class="text-left p-4 rounded-lg border text-sm transition font-barlow tracking-wider uppercase flex justify-between items-center ${isSelected ? 'bg-brandOrange/10 border-brandOrange text-brandWhite' : 'bg-zinc-950 border-zinc-900 text-brandGray hover:border-zinc-700'}">
+                            <span>${opt.label}</span>
+                            <i class="fa-solid ${isSelected ? 'fa-circle-dot text-brandOrange' : 'fa-circle text-zinc-800'}"></i>
+                        </button>
+                    `;
+                });
+                container.appendChild(optsGrid);
+            } 
+            else if (step.type === "multi") {
+                const optsGrid = document.createElement('div');
+                optsGrid.className = "grid grid-cols-1 md:grid-cols-2 gap-4";
+                step.options.forEach(opt => {
+                    const isChecked = quizAnswers[`step${step.id}`].includes(opt.value);
+                    optsGrid.innerHTML += `
+                        <button onclick="toggleMultiOption('${opt.value}')" class="text-left p-4 rounded-lg border text-sm transition font-barlow tracking-wider uppercase flex justify-between items-center ${isChecked ? 'bg-brandBlue/10 border-brandBlue text-brandWhite' : 'bg-zinc-950 border-zinc-900 text-brandGray hover:border-zinc-700'}">
+                            <span>${opt.label}</span>
+                            <i class="fa-solid ${isChecked ? 'fa-square-check text-brandBlue' : 'fa-square text-zinc-800'}"></i>
+                        </button>
+                    `;
+                });
+                container.appendChild(optsGrid);
+            }
+            else if (step.type === "range") {
+                const rangeContainer = document.createElement('div');
+                rangeContainer.className = "flex flex-col gap-4 items-center justify-center py-6";
+                let scaleHtml = `<div class="flex gap-2 md:gap-4 justify-between w-full max-w-lg">`;
+                step.options.forEach(opt => {
+                    const isSelected = quizAnswers[`step${step.id}`] === opt.value;
+                    scaleHtml += `
+                        <button onclick="selectSingleOption('${opt.value}')" class="w-12 h-12 rounded-full border flex items-center justify-center font-bebas text-xl tracking-tight transition ${isSelected ? 'bg-brandOrange border-brandOrange text-brandWhite shadow-lg shadow-brandOrange/30' : 'bg-zinc-950 border-zinc-900 text-brandGray hover:border-zinc-700'}">
+                            ${opt.value}
+                        </button>
+                    `;
+                });
+                scaleHtml += `</div>`;
+                rangeContainer.innerHTML = scaleHtml;
+
+                // Añadir label del valor actual seleccionado
+                if (quizAnswers[`step${step.id}`]) {
+                    const selectedOpt = step.options.find(o => o.value === quizAnswers[`step${step.id}`]);
+                    rangeContainer.innerHTML += `<p class="text-brandOrange font-barlow tracking-widest text-sm mt-4 uppercase">${selectedOpt.label}</p>`;
+                }
+                container.appendChild(rangeContainer);
+            }
+            else if (step.type === "text") {
+                const textContainer = document.createElement('div');
+                textContainer.className = "w-full max-w-3xl mx-auto";
+                textContainer.innerHTML = `
+                    <textarea id="quiz-textarea" oninput="saveTextOption(this.value)" placeholder="${step.placeholder}" class="w-full bg-zinc-950 border border-zinc-900 rounded-lg p-4 text-brandWhite text-sm placeholder-zinc-700 h-32 focus:outline-none focus:border-brandOrange focus:ring-1 focus:ring-brandOrange transition resize-none">${quizAnswers[`step${step.id}`]}</textarea>
+                `;
+                container.appendChild(textContainer);
+            }
+
+            updateQuizControls();
+        }
+
+        function selectSingleOption(val) {
+            quizAnswers[`step${activeQuizStep + 1}`] = val;
+            renderQuiz();
+        }
+
+        function toggleMultiOption(val) {
+            const currentList = quizAnswers[`step${activeQuizStep + 1}`];
+            const idx = currentList.indexOf(val);
+            if (idx > -1) {
+                currentList.splice(idx, 1);
+            } else {
+                currentList.push(val);
+            }
+            renderQuiz();
+        }
+
+        function saveTextOption(val) {
+            quizAnswers[`step${activeQuizStep + 1}`] = val;
+            updateQuizControls();
+        }
+
+        function updateQuizControls() {
+            const step = quizQuestions[activeQuizStep];
+            const currentAns = quizAnswers[`step${step.id}`];
+
+            const hasAnswer = (step.type === "multi") 
+                ? (currentAns && currentAns.length > 0) 
+                : (currentAns && currentAns.trim !== "" && currentAns !== "");
+
+            document.getElementById('quiz-next-btn').disabled = !hasAnswer;
+            document.getElementById('quiz-prev-btn').style.display = (activeQuizStep === 0) ? 'none' : 'block';
+
+            if (activeQuizStep === quizQuestions.length - 1) {
+                document.getElementById('quiz-next-btn').innerHTML = `Generar Reporte <i class="fa-solid fa-square-poll-horizontal ml-2"></i>`;
+            } else {
+                document.getElementById('quiz-next-btn').innerHTML = `Siguiente <i class="fa-solid fa-arrow-right ml-2"></i>`;
+            }
+        }
+
+        function nextQuizStep() {
+            if (activeQuizStep < quizQuestions.length - 1) {
+                activeQuizStep++;
+                renderQuiz();
+            } else {
+                generateReport();
+            }
+        }
+
+        function prevQuizStep() {
+            if (activeQuizStep > 0) {
+                activeQuizStep--;
+                renderQuiz();
+            }
+        }
+
+        // CONSTRUCCIÓN DEL REPORTE FINAL AUTOMÁTICO
+        function generateReport() {
+            document.getElementById('quiz-flow').classList.add('hidden');
+            document.getElementById('quiz-report').classList.remove('hidden');
+
+            // Formatear Fecha Actual
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('report-date').innerText = new Date().toLocaleDateString('es-ES', options).toUpperCase();
+
+            // Inyectar Respuestas en la Tarjeta
+            document.getElementById('rep-logros').innerText = quizAnswers.step1.toUpperCase();
+            document.getElementById('rep-calma').innerText = `NIVEL ${quizAnswers.step4} DE 5`;
+            document.getElementById('rep-senales').innerText = quizAnswers.step2.join(', ').toUpperCase();
+            document.getElementById('rep-frecuencia').innerText = quizAnswers.step3.toUpperCase();
+            document.getElementById('rep-experiencia').innerText = `"${quizAnswers.step5}"`;
+
+            // Lógica de Feedback Automatizado basado en tu Educación Canina Cognitiva
+            let feedback = "";
+            const totalSignals = quizAnswers.step2.length;
+            const hadNone = quizAnswers.step2.includes("Ninguna");
+
+            if (hadNone) {
+                feedback = "Excelente fluidez. Al no registrarse señales de incomodidad y mantener un nivel óptimo de relajación, tu perrito procesó la guía en total confort. ¡Sigue cuidando esa serenidad del espacio previo!";
+            } else if (totalSignals >= 3 || quizAnswers.step3.includes("3+")) {
+                feedback = "¡Magnífico ojo observador! Tu perro te está hablando activamente. Al detectar señales constantes, prioriza hacer micro-pausas más largas. Tu capacidad de detenerte y validar es el núcleo de nuestra metodología de respeto.";
+            } else {
+                feedback = "Un camino equilibrado. Estás logrando coordinar tu calma, guiar de manera sutil y detectar oportunamente las interacciones. Sigue fortaleciendo esta sintonía diaria.";
+            }
+
+            document.getElementById('rep-feedback').innerText = feedback;
+        }
+
+        function resetBitacora() {
+            activeQuizStep = 0;
+            quizAnswers = {
+                step1: "",
+                step2: [],
+                step3: "",
+                step4: "",
+                step5: ""
+            };
+            document.getElementById('quiz-report').classList.add('hidden');
+            document.getElementById('quiz-flow').classList.remove('hidden');
+            renderQuiz();
+        }
+    </script>
 </body>
 </html>
